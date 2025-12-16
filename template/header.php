@@ -75,9 +75,19 @@
     
     <div class="navbar">
         <ul>
-            <li><a href="<?php echo '/lab11_php_oop/barang/index'; ?>">🏠 Home</a></li>
-            <li><a href="<?php echo '/lab11_php_oop/barang/tambah'; ?>">➕ Tambah Barang</a></li>
+            <li><a href="<?php echo '/lab11_php_oop/home/index'; ?>">🏠 Home</a></li>
+            
+            <?php if (isset($_SESSION['is_login'])): ?>
+                <li><a href="<?php echo '/lab11_php_oop/barang/index'; ?>">📦 Data Barang</a></li>
+                <li><a href="<?php echo '/lab11_php_oop/user/profile'; ?>">👤 Profil</a></li>
+            <?php endif; ?>
+            
+            <?php if (isset($_SESSION['is_login'])): ?>
+                <li style="margin-left: auto;"><a href="<?php echo '/lab11_php_oop/user/logout'; ?>">🚪 Logout (<?php echo $_SESSION['nama']; ?>)</a></li>
+            <?php else: ?>
+                <li style="margin-left: auto;"><a href="<?php echo '/lab11_php_oop/user/login'; ?>">🔐 Login</a></li>
+            <?php endif; ?>
         </ul>
     </div>
     
-    <div class="container content"></div>
+    <div class="container content">

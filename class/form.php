@@ -81,4 +81,4 @@ class Form
         $this->jumField++;
     }
 }
-?>~
+?>
